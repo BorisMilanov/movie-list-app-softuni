@@ -12,7 +12,7 @@ export const useSignup = () => {
 
         console.log("we are here");
 
-       const response= await fetch('http://localhost:4000/user/signup', {
+       const response= await fetch('/api/user/signup', {
             method: 'POST',
 
             headers: { 'Content-Type': 'application/json' },
