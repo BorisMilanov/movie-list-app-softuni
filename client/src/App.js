@@ -8,14 +8,14 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 
-import NavbarTest from './components/NavbarTest'
+import Navbar from './components/Navbar'
 function App() {
   const { user } = useAuthContext()
 
   return (
     <div className="App">
       <BrowserRouter>
-        <NavbarTest />
+        <Navbar />
         <div className="pages">
           <Routes>
             <Route 
