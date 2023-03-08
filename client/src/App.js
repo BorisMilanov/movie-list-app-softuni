@@ -7,8 +7,9 @@ import { useAuthContext } from './hooks/useAuthContext'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
-
+import Profile from './pages/Profile'
 import Navbar from './components/Navbar'
+import Movies from './pages/Movies'
 function App() {
   const { user } = useAuthContext()
 
@@ -18,10 +19,18 @@ function App() {
         <Navbar />
         <div className="pages">
           <Routes>
-            <Route 
+            {/* <Route 
               path="/" 
               element={user ? <Home /> : <Navigate to="/login" />} 
-            />
+            />  */}
+               <Route 
+            path="/add" 
+            element={user ? <Movies /> : <Navigate to="/add/post" />} 
+          />
+             <Route 
+            path="/profile" 
+            element={user ? <Profile /> : <Navigate to="/" />} 
+          />
             <Route 
               path="/login" 
               element={!user ? <Login /> : <Navigate to="/" />} 
