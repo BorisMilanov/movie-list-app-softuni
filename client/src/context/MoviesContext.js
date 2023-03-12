@@ -1,5 +1,5 @@
 
-import { createContext, useContext } from 'react'
+import { createContext, useReducer } from 'react'
 let value="hi"
 export const MoviesContext = createContext(value)
 

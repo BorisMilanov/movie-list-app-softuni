@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import axios from 'axios'
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const TvShowContainer = styled.div`
   width: 100%;
@@ -36,16 +38,32 @@ const Rating = styled.span`
   flex: 0.2;
 `;
 
-export function TvShow(props) {
-  const { thumbanilSrc, name, rating } = props;
+const Button = styled.div`
+  background-color:green;
+  color:white;
+  font: 12px;
+`
 
+export function TvShow(props) {
+  const {user} = useAuthContext()
+  const {  name } = props;
+  const propsData = {
+    // thumbanilSrc:thumbanilSrc,
+    name: name,
+  
+    // rating: rating                                //TODO
+  }
+  const onClickFavorite = () => {
+    axios.post('http://localhost:4000/addFav', propsData)}
+  
   return (
     <TvShowContainer>
-      <Thumbnail>
+      {/* <Thumbnail>
         <img src={thumbanilSrc} />
-      </Thumbnail>
+      </Thumbnail> */}
       <Name>{name}</Name>
-      <Rating>{rating || "N/A"}</Rating>
+      {/* <Rating>{rating || "N/A"}</Rating> */}
+      <button  onClick={onClickFavorite}>Add to watching</button>
     </TvShowContainer>
   );
 }

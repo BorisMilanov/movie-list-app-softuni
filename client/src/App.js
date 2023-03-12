@@ -10,6 +10,7 @@ import Signup from './pages/Signup'
 import Profile from './pages/Profile'
 import Navbar from './components/Navbar'
 import Movies from './pages/Movies'
+import WatchedMovies from './pages/WatchedMovies'
 function App() {
   const { user } = useAuthContext()
 
@@ -23,6 +24,10 @@ function App() {
               path="/" 
               element={user ? <Home /> : <Navigate to="/login" />} 
             />  */}
+                  <Route 
+            path="/watched" 
+            element={user ? <WatchedMovies /> : <Navigate to="/login" />} 
+          />
                <Route 
             path="/add" 
             element={user ? <Movies /> : <Navigate to="/add/post" />} 

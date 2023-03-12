@@ -9,12 +9,13 @@ const requireAuth = async (req, res, next) => {
     return res.status(401).json({error: 'Authorization token required'})
   }
 
-  const token = authorization.split(' ')[1]
+  const token = authorization.split(' ')[1] //Clue number one give a headers to a watchedmovies page
 
   try {
     const { _id } = jwt.verify(token, 'ninjadojoshifuyoshimarioluigipeachbowser')
-
+//
     req.user = await User.findOne({ _id }).select('_id')
+    console.log(req.user);
     next()
 
   } catch (error) {
