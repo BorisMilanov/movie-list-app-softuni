@@ -4,11 +4,13 @@ const Schema = mongoose.Schema;
 
 const moviesSchema = new Schema({
   
-    name: {
-        type: String,
-        unique: true}
+   
+        
+        name: {type:String},
+        user_id: {
+            type:String}
 
    
 })
 
-module.exports = mongoose.model('Movies',moviesSchema)
+module.exports = mongoose.model('Movie',moviesSchema)

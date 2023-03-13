@@ -54,7 +54,10 @@ export function TvShow(props) {
     // rating: rating                                //TODO
   }
   const onClickFavorite = () => {
-    axios.post('http://localhost:4000/addFav', propsData)}
+    axios.post('/api/move/add', propsData, {headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${user.token}`}
+    })}
   
   return (
     <TvShowContainer>

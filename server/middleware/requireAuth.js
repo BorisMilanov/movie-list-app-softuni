@@ -14,8 +14,7 @@ const requireAuth = async (req, res, next) => {
   try {
     const { _id } = jwt.verify(token, 'ninjadojoshifuyoshimarioluigipeachbowser')
 //
-    req.user = await User.findOne({ _id }).select('_id')
-    console.log(req.user);
+    req.user = await User.findById({ _id }) //TOdo middleware
     next()
 
   } catch (error) {

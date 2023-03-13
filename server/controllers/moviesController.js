@@ -1,4 +1,4 @@
-const Movies = require('../models/movieModel')
+const Movie = require('../models/movieModel')
 const mongoose = require('mongoose')
 
 // const getMovies = async (req,res) => {
@@ -10,15 +10,16 @@ const mongoose = require('mongoose')
 // }
 
 const createMovie = async (req,res)=>{ 
-  // const user_id = req.user._id
-  // console.log(user_id);
-  //    console.log(user_id);
+  let {  name } = req.body;
+  
 
     try {
-      let {  name } = req.body;
-      await Movies.create(name);
+ const user_id = req.user._id
+
+      const movies =  new Movie({name,user_id});
+      await movies.save()
   } catch (error) {
-      console.log(a + error);
+      console.log(error);
       res.status(401).json(error);
   }
   }

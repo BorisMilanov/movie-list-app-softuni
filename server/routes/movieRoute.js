@@ -1,10 +1,10 @@
 const express = require('express');
-
+const requireAuth = require('../middleware/requireAuth')
 
 const {createMovie} = require('../controllers/moviesController');
 const router = express.Router();
-
-router.post('/addFav',createMovie);
+router.use(requireAuth)
+router.post('/add',createMovie);
 
 // router.get('/getMovies', getMovies)
 
